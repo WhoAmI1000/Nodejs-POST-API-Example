@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Express.js API Tutorial Example</title>
+    <meta charset="utf-8" />
+
+    <style>
+        #buttonContainer {
+            text-align: center;
+            margin: 10px auto;
+        }
+        
+        #main_text {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function sendPost() { // Define a new function
+            var postReq = new XMLHttpRequest(); // Define a new XMLHttpRequest
+            postReq.open("POST", 'http://localhost:8000/api/helloworld/post_only'); // Open the XMLHttpRequest
+            postReq.send("Hi"); // Send the request
+            postReq.onload = () => { // Will run when the request receives a response
+                console.log(postReq.response); // Log the response
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id='main_text'>Hello World!</h1>
+    <div id='buttonContainer'>
+        <button onclick='sendPost()' value='Send POST Request' id='mb'>Send POST Request</button></div>
+</body>
+
+</html>
